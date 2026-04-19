@@ -1,4 +1,4 @@
-const API = "http://localhost:8000/api/V1/auth";
+const API ="http://localhost:8000/api/V1/auth";
 
 export const loginUser = async (email, password) => {
   const res = await fetch(`${API}/login`, {

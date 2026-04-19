@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { AuthContext } from '../src/context/AuthContext'
 import hero from '../src/assets/hero.png'
-import { updateDB } from '../src/api/Update'
+import { updateDB, resetList } from '../src/api/Update'
 function Home() {
 
   const [active, setActive] = useState("purchased")
@@ -16,27 +16,38 @@ function Home() {
   },[token, loading])
 
   const handleComplete = (product,index)=>{
-    const res = updateDB(1001,"vignesh",product) // line wants to change
+    const res = updateDB(product) // line wants to change
     console.log(res.data)
     setNotPurchased(notPurchased.filter((_, i) => i !== index));
     setPurchased([...purchased, product])
   }
+
+  const reset = ()=>{
+    const res = resetList()
+    if (res){
+      console.log("Reset Success")
+    }
+    else{
+      console.log("reset Unsuccess")
+    }
+  }
   return (
     <Style>
+      {/* nav bar under working */}
      <Nav>
        <nav>
         <div className="nav">
           <h3>MYHOGRA</h3>
-          <img src={hero} alt="sorry image not found" />
+          {/* <img src={hero} alt="sorry image not found" /> */}
         </div>
-        <div className="profile">
+        {/* <div className="profile">
           <ul>
             <li>Profile</li>
             <li>Change Password</li>
             <li>History</li>
             <li>Logout</li>
           </ul>
-        </div>
+        </div> */}
         
       </nav>
      </Nav>
@@ -101,6 +112,7 @@ function Home() {
       </Content>
       <div className="addproduct">
         <button className='add' onClick={()=>{navigate('products')}}>Add Products</button>
+        <button className='add' onClick={reset}>Reset List</button>
       </div>
       </div>
     </Style>
@@ -110,6 +122,9 @@ const Style = styled.div`
   --color: white;
   --bgcolor: #389c9a;
   --product_color:#1E293B;
+  h3{
+    color: #389c9a;
+  }
 
   .home {
     width: 100%;
@@ -157,6 +172,7 @@ const Style = styled.div`
     border: none;
     color: var(--color);
     border-radius: 30px;
+    margin: 5px;
   }
   .buttons {
     display: flex;

@@ -58,7 +58,7 @@ const Login = () => {
 
             <button onClick={handleLogin}>Login</button>
           <h5>
-            <a href="#">Create new account</a><br />
+            Dont have an account <a href="#" onClick={()=>navigate('/createUser')}>Create new account</a><br />
             <a href="#">Forgot password</a>
           </h5>
           </div>

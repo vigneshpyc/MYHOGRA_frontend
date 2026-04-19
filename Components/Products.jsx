@@ -82,6 +82,14 @@ const Style = styled.div`
 --bgcolor : #389c9a;
 --color: orange;
 --icon-color : white;
+min-height: 100vh;
+background-color: #caf2f2;
+.background{
+  background-color: #389c9a;
+  border: 5px solid black;
+  margin: 1;
+}
+
 `
 const Nav = styled.div`
 
@@ -112,22 +120,30 @@ const Category = styled.div`
   }
 `
 const ProductsDesign = styled.div`
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
   .pro{
-    width: 100%;
+    width: 90%;
     padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   }
   .cnt{
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #389c9a;
     padding: 10px;
     border-radius:10px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
   }
   .pic{
     width: 50%;
