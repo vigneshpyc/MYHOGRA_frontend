@@ -1,30 +1,29 @@
 import axios from "axios";
 
 // API for update db
-const API = "http://localhost:8000/api/V1/dbapi";
-
+// const API = "http://localhost:8000/api/V1/dbapi";
+import {DB_API} from '../api/enpoints'
 export const updateDB = async(product)=>{
    const addData = await axios.post(
-        `${API}/update`,
+        `${DB_API}/update`,
         {product:product},
         {withCredentials:true}
     );
-    return res.json();
+    return addData.json();
 };
 // API for add product in database
 export const addProduct = async(product) =>{
-    const addData = await axios.post(
-        `${API}/addproduct`,
+    const addPro = await axios.post(
+        `${DB_API}/addproduct`,
         {product:product},
         {withCredentials:true}
     );
-    console.log("mesfrom api call : "+addData);
-    return addData;
+    return addPro;
 }
 
 // API for fetch the total product
 export const productFetch = async(category)=>{
-    const res = await fetch(`${API}/fetchproduct`, {
+    const res = await fetch(`${DB_API}/fetchproduct`, {
         method:"POST",
         credentials:"include",
         headers:{"Content-Type":"application/json"},
@@ -35,9 +34,9 @@ export const productFetch = async(category)=>{
 //API for reset a list
 export const resetList = async() =>{
     const reset = await axios.post(
-        `${API}/reset`,
+        `${DB_API}/reset`,
         {},
         {withCredentials:true}
     );
-    return addData;
+    return reset;
 }

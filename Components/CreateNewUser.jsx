@@ -2,9 +2,9 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { data, useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
+import {API} from '../src/api/enpoints'
 function CreateNewUser() {
     const navigate = useNavigate()
-    const API = "http://localhost:8000/api/V1/auth";
     const [passwrd, setPassWrd] = useState("")
     const [repaswrd, setRePasWrd] = useState("")
     const [formData, setFormData] = useState({

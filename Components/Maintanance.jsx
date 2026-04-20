@@ -1,18 +1,21 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 function Maintanance() {
+    const navigate = useNavigate()
   return (
     <>
     <Style>
         <div className="mes">
             <h1>⚠️</h1><br />
-        <h4>
-            Developers currently working on this feature, this will availabe as soon as possible, for more Information contact developer <br/>
-            <span>MR. Vignesh, 📞 : 8667236832</span>
-        </h4><br />
-        <h4>Thanks for Visiting🙏</h4>
-    </div>
+            <h4>
+                Developers currently working on this feature, this will availabe as soon as possible, for more Information contact developer <br/>
+                <span>MR. Vignesh, 📞 : 8667236832</span>
+            </h4><br />
+            <h4>Thanks for Visiting🙏</h4>
+            <a href="" onClick={()=>navigate('/home')}>click here to back</a>
+        </div>
     </Style>
     
     </>
