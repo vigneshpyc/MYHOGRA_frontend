@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { AuthContext } from '../src/context/AuthContext'
 import hero from '../src/assets/hero.png'
 import { updateDB, resetList } from '../src/api/Update'
+import { HiOutlineLightBulb } from "react-icons/hi";
 function Home() {
 
   const [active, setActive] = useState("purchased")
@@ -114,6 +115,12 @@ function Home() {
         <button className='add' onClick={()=>{navigate('products')}}>Add Products</button>
         <button className='add' onClick={reset}>Reset List</button>
       </div>
+      <div className="suggestion">
+        <div className="i" onClick={()=>navigate('/maintanance')}>
+        <HiOutlineLightBulb />
+        </div>
+      </div>
+
       </div>
     </Style>
   )
@@ -177,6 +184,29 @@ const Style = styled.div`
   .buttons {
     display: flex;
     width: 100%;
+  }
+  .suggestion{
+    width: 100%;
+    height: 50px;
+    padding-right: 20px;
+  }
+  .i{
+    float: right;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #389c9a;
+    color: white;
+    font-size: 40px;
+    border-radius: 50%;
+    animation: spin 1s infinite;
+  }
+  @keyframes spin {
+   from{
+    transform: rotateY(360deg);
+   }
   }
 `
 const Button = styled.button`
